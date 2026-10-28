@@ -1,0 +1,2 @@
+Este es un archivo de prueba.
+La lectura del archivo fue correcta.
