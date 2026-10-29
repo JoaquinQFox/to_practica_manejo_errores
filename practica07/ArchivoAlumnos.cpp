@@ -55,3 +55,34 @@ std::vector<Alumno> cargarAlumnos(const std::string& nombreArchivo) {
     if (archivo.bad()) throw std::runtime_error("Error al leer el CSV.");
     return alumnos;
 }
+
+void guardarAlumnos(const std::vector<Alumno>& alumnos,
+                    const std::string& nombreArchivo) {
+    std::ofstream archivo(nombreArchivo);
+
+    if (!archivo.is_open()) {
+        throw std::runtime_error(
+            "No se pudo abrir el archivo para guardar alumnos."
+        );
+    }
+
+    for (const Alumno& alumno : alumnos) {
+        archivo << alumno.getCodigo() << ","
+                << alumno.getNombre() << ","
+                << alumno.getEdad() << "\n";
+
+        if (!archivo) {
+            throw std::runtime_error(
+                "Error al escribir los datos en el archivo."
+            );
+        }
+    }
+
+    archivo.close();
+
+    if (archivo.fail()) {
+        throw std::runtime_error(
+            "Error al cerrar el archivo de alumnos."
+        );
+    }
+}
