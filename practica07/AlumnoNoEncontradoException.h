@@ -3,3 +3,11 @@
 
 #include <stdexcept>
 #include <string>
+
+class AlumnoNoEncontradoException : public std::runtime_error {
+public:
+    AlumnoNoEncontradoException(int codigo)
+        : std::runtime_error("No existe un alumno con codigo " + std::to_string(codigo) + ".") {}
+};
+
+#endif
