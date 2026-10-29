@@ -69,7 +69,23 @@ int main() {
                 }
 
                 case 2: {
-                    // TODO
+                    std::cout << "\nBUSCAR ALUMNO\n";
+                    int codigo = leerEntero("Codigo del alumno: ");
+
+                    bool encontrado = false;
+
+                    for (const Alumno& alumno : alumnos) {
+                        if (alumno.getCodigo() == codigo) {
+                            std::cout << "\nAlumno encontrado:\n";
+                            alumno.mostrar();
+                            encontrado = true;
+                            break;
+                        }
+                    }
+
+                    if (!encontrado) {
+                        throw AlumnoNoEncontradoException(codigo);
+                    }
 
                     break;
                 }
