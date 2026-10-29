@@ -100,16 +100,33 @@ int main() {
                     break;
 
                 case 4: {
-                    // TODO
+                    std::cout << "\nCARGAR ALUMNOS DESDE ARCHIVO\n";
+
+                    std::string nombreArchivo = leerTexto("Nombre del archivo CSV: ");
+
+                    std::vector<Alumno> alumnosCargados = cargarAlumnos(nombreArchivo);
+
+                    alumnos = alumnosCargados;
+
+                    std::cout << "\nAlumnos cargados correctamente.\n";
+                    std::cout << "Total de alumnos: " << alumnos.size() << "\n";
 
                     break;
                 }
 
                 case 5: {
-                    // TODO
+                    std::cout << "\nGUARDAR ALUMNOS EN ARCHIVO\n";
+
+                    std::string nombreArchivo = leerTexto("Nombre del archivo CSV: ");
+
+                    guardarAlumnos(alumnos, nombreArchivo);
+
+                    std::cout << "\nAlumnos guardados correctamente.\n";
+                    std::cout << "Total de alumnos: " << alumnos.size() << "\n";
 
                     break;
                 }
+
 
                 default:
                     std::cout << "\nOpcion no valida\n";
